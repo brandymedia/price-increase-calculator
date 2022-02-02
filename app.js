@@ -71,6 +71,18 @@
         const revenueIncreaseFixed = document.querySelector('.revenue-increase-fixed');
 
         currentRevenuePeriod.addEventListener('change', () => {
+            // params = new URLSearchParams(location.search);
+            // let periodParam = params.get('period');            
+            // params.set('period', currentRevenuePeriodOption);
+            console.log(currentRevenuePeriodOption);
+
+            // window.addEventListener('load', () => {
+            //     if (periodParam) {
+            //         // currentRevenuePeriodOption.value = periodParam;
+            //         console.log('yep');
+            //     }
+            // });            
+
             calculate();
         });
 
@@ -113,8 +125,6 @@
             newCustomerTotal = customerTotal;
         }
 
-        console.log(newCustomerTotal);
-
         if (revenueIncreaseTypeOption === 'fixed') {
             projectedMonthlyRevenueTotal = (currentMonthlyRevenuePerCustomer + revenueIncrease) * newCustomerTotal;
             projectedMonthlyRevenueTotalPerCustomer = currentMonthlyRevenuePerCustomer + revenueIncrease;
@@ -131,17 +141,18 @@
 
         if (projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal) {
             warningText = `<div class="bg-red-500 text-red-50 mt-5 p-5 flex items-center justify-center">
-                <div class="mr-5"><i class="fas fa-exclamation-triangle text-2xl"></i></div>
+                <div class="mr-3"><i class="fas fa-exclamation-triangle text-2xl"></i></div>
                 <div>Your projected revenue is less than your current revenue.</div>
             </div>`
         }
         
         results.innerHTML = `
-            <h3 class="text-2xl mb-5">Results</h3>
-
-            <p>If you increase your prices by <strong class="text-2xl text-emerald-400">${revenueIncreaseTypeOption === 'fixed' ? `£` : ''}${ revenueIncrease }${revenueIncreaseTypeOption !== 'fixed' ? `%` : ''}</strong> per customer, with an average churn rate of <strong class="text-2xl text-emerald-400">${ churnRate }%</strong>, your projected revenue would be <strong class="text-2xl ${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' }">£${ thousands_separators(projectedMonthlyRevenueTotal.toFixed(2)) }</strong> monthly and <strong class="text-2xl ${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' }">£${ thousands_separators(projectedAnnualRevenueTotal.toFixed(2)) }</strong> annualy.</p>
+            <div class="px-5 md:px-0">
+                <h3 class="text-2xl mb-5">Results</h3>
+                <p>If you increase your prices by <strong class="text-2xl text-emerald-400">${revenueIncreaseTypeOption === 'fixed' ? `£` : ''}${ revenueIncrease }${revenueIncreaseTypeOption !== 'fixed' ? `%` : ''}</strong> per customer, with an average churn rate of <strong class="text-2xl text-emerald-400">${ churnRate }%</strong>, your projected revenue would be <strong class="text-2xl ${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' }">£${ thousands_separators(projectedMonthlyRevenueTotal.toFixed(2)) }</strong> monthly and <strong class="text-2xl ${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' }">£${ thousands_separators(projectedAnnualRevenueTotal.toFixed(2)) }</strong> annualy.</p>
+            </div>
             ${ warningText }
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-0 md:gap-4 mt-10">
                 <div class="bg-slate-200 p-5">
                     <h4 class="text-xl font-bold mb-5">Current Revenue</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -149,22 +160,22 @@
                             <h5 class="text-lg mb-5 font-bold">Monthly</h5>
                             <div class="mb-5">
                                 <div class="text-sm">Total</div>
-                                <div class="text-emerald-400 font-bold text-xl">£${ thousands_separators(currentMonthlyRevenueTotal.toFixed(2)) }</div>
+                                <div class="text-emerald-400 font-bold text-base md:text-xl">£${ thousands_separators(currentMonthlyRevenueTotal.toFixed(2)) }</div>
                             </div>
                             <div>
                                 <div class="text-sm">Per Customer</div>
-                                <div class="text-emerald-400 font-bold text-xl">£${ thousands_separators(currentMonthlyRevenuePerCustomer.toFixed(2)) }</div>
+                                <div class="text-emerald-400 font-bold text-base md:text-xl">£${ thousands_separators(currentMonthlyRevenuePerCustomer.toFixed(2)) }</div>
                             </div>
                         </div>
                         <div class="bg-slate-50 border border-slate-100 p-5">
                             <h5 class="text-lg mb-5 font-bold">Annualy</h5>
                             <div class="mb-5">
                                 <div class="text-sm">Total</div>
-                                <div class="text-emerald-400 font-bold text-xl">£${ thousands_separators(currentAnnualRevenueTotal.toFixed(2)) }</div>
+                                <div class="text-emerald-400 font-bold text-base md:text-xl">£${ thousands_separators(currentAnnualRevenueTotal.toFixed(2)) }</div>
                             </div>
                             <div>
                                 <div class="text-sm">Per Customer</div>
-                                <div class="text-emerald-400 font-bold text-xl">£${ thousands_separators(currentAnnualRevenuePerCustomer.toFixed(2)) } </div>
+                                <div class="text-emerald-400 font-bold text-base md:text-xl">£${ thousands_separators(currentAnnualRevenuePerCustomer.toFixed(2)) } </div>
                             </div>
                         </div>
                     </div>
@@ -176,22 +187,22 @@
                             <h5 class="text-lg mb-5 font-bold">Monthly</h5>
                             <div class="mb-5">
                                 <div class="text-sm">Total</div>
-                                <div class="text-emerald-400 font-bold text-xl">£${ thousands_separators(projectedMonthlyRevenueTotal.toFixed(2)) }</div>
+                                <div class="${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' } font-bold text-base md:text-xl">£${ thousands_separators(projectedMonthlyRevenueTotal.toFixed(2)) }</div>
                             </div>
                             <div>
                                 <div class="text-sm">Per Customer</div>
-                                <div class="text-emerald-400 font-bold text-xl">£${ thousands_separators(projectedMonthlyRevenueTotalPerCustomer.toFixed(2)) }</div>
+                                <div class="text-emerald-400 font-bold text-base md:text-xl">£${ thousands_separators(projectedMonthlyRevenueTotalPerCustomer.toFixed(2)) }</div>
                             </div>
                         </div>
                         <div class="bg-slate-50 border border-slate-100 p-5">
                             <h5 class="text-lg mb-5 font-bold">Annualy</h5>
                             <div class="mb-5">
                                 <div class="text-sm">Total</div>
-                                <div class="text-emerald-400 font-bold text-xl">£${ thousands_separators(projectedAnnualRevenueTotal.toFixed(2)) }</div>
+                                <div class="${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' } font-bold text-base md:text-xl">£${ thousands_separators(projectedAnnualRevenueTotal.toFixed(2)) }</div>
                             </div>
                             <div>
                                 <div class="text-sm">Per Customer</div>
-                                <div class="text-emerald-400 font-bold text-xl">£${ thousands_separators(projectedAnnualRevenueTotalPerCustomer.toFixed(2)) } </div>
+                                <div class="text-emerald-400 font-bold text-base md:text-xl">£${ thousands_separators(projectedAnnualRevenueTotalPerCustomer.toFixed(2)) } </div>
                             </div>
                         </div>
                     </div>
