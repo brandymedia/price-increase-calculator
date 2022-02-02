@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Increase Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-slate-100">
+    <header>
+        <div class="py-5 flex w-full justify-center flex-col md:flex-row items-center bg-slate-800 text-emerald-400">
+            <i class="fas fa-chart-line text-3xl md:mr-5"></i>            
+            <h1 class="text-3xl tracking-tight">Price Increase Calculator</h1>
+        </div>
+    </header>
+    <main>
+        <div class="mt-10 px-3 max-w-xl mx-auto text-center">
+            <h2 class="text-2xl tracking-tight">Calculate the risk to your business by increasing your prices</h2>
+        </div>
+
+        <div class="bg-white text-slate-900 my-10 md:p-5 max-w-6xl mx-auto text-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 no-print">   
+                <div class="bg-slate-200 p-5">
+                    <div class="bg-slate-50 p-5">
+                        <label for="current-revenue-input" class="text-lg flex justify-between items-end"><span>Current Revenue</span></label>
+                        <div class="mt-1 flex shadow-md">
+                            <span class="inline-flex items-center px-3 rounded-none border border-r-0 border-slate-900 bg-slate-900 text-white">£</span>
+                            <input type="number" name="current-revenue-input" id="current-revenue-input" class="ap-input current-revenue-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus>
+                            <span class="inline-flex items-center rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">
+                                <select class="text-slate-900 border-l-0 current-revenue-period" name="current-revenue-period" id="current-revenue-period">
+                                    <option value="monthly" selected>monthly</option>
+                                    <option value="anually">anually</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="annual-turnover-input-slider mt-5 p-1 flex shadow-md border-slate-900 border-2 rounded-full justify-center items-center bg-white">
+                            <div class="current-revenue-input-slider-step-down">
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold">-</button>
+                            </div>
+                            <label for="current-revenue-input-slider-range" class="hidden"><span>Current Revenue Slider</span></label>
+                            <input type="range" name="current-revenue-input-slider-range" id="current-revenue-input-slider-range" class="current-revenue-input-slider-range flex-grow appearance-none outline-none" min="0" max="1000000" step="1000" value="25000">
+                            <div class="current-revenue-input-slider-step-up">
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-200 p-5">
+                    <div class="bg-slate-50 p-5">
+                        <label for="customer-total-input" class="text-lg flex justify-between items-end"><span>Customer Total</span></label>
+                        <div class="mt-1 flex shadow-md">
+                            <span class="inline-flex items-center px-3 rounded-none border border-r-0 border-slate-900 bg-slate-900 text-white"><i class="fas fa-user"></i></span>
+                            <input type="number" name="customer-total-input" id="customer-total-input" class="ap-input customer-total-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus>
+                            <span class="inline-flex items-center px-3 rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">customers</span>
+                        </div>
+                        <div class="annual-turnover-input-slider mt-5 p-1 flex shadow-md border-slate-900 border-2 rounded-full justify-center items-center bg-white">
+                            <div class="customer-total-input-slider-step-down">
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold">-</button>
+                            </div>
+                            <label for="customer-total-input-slider-range" class="hidden"><span>Customer Total Slider</span></label>
+                            <input type="range" name="customer-total-input-slider-range" id="customer-total-input-slider-range" class="customer-total-input-slider-range flex-grow appearance-none outline-none" min="0" max="10000" step="10" value="500">
+                            <div class="customer-total-input-slider-step-up">
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-200 p-5">
+                    <div class="bg-slate-50 p-5">
+                        <label for="revenue-increase-input" class="text-lg flex justify-between items-end"><span>Revenue Increase <span class="text-sm">(per customer)</span></span></label>
+                        <div class="mt-1 flex shadow-md">
+                            <span class="revenue-increase-fixed inline-flex items-center px-3 rounded-none border border-r-0 border-slate-900 bg-slate-900 text-white">£</span>
+                            <input type="number" name="revenue-increase-input" id="revenue-increase-input" class="ap-input revenue-increase-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus>
+                            <span class="inline-flex items-center rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">
+                                <select class="text-slate-900 border-l-0 revenue-increase-type" name="revenue-increase-type" id="revenue-increase-type">
+                                    <option value="monthly" selected>fixed</option>
+                                    <option value="anually">%</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="annual-turnover-input-slider mt-5 p-1 flex shadow-md border-slate-900 border-2 rounded-full justify-center items-center bg-white">
+                            <div class="revenue-increase-input-slider-step-down">
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold">-</button>
+                            </div>
+                            <label for="revenue-increase-input-slider-range" class="hidden"><span>Revenue Increase Slider</span></label>
+                            <input type="range" name="revenue-increase-input-slider-range" id="revenue-increase-input-slider-range" class="revenue-increase-input-slider-range flex-grow appearance-none outline-none" min="0" max="10000" step="10" value="10">
+                            <div class="revenue-increase-input-slider-step-up">
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-200 p-5">
+                    <div class="bg-slate-50 p-5">
+                        <label for="churn-rate-input" class="text-lg flex justify-between items-end"><span>Churn Rate</span></label>
+                        <div class="mt-1 flex shadow-md">
+                            <input type="number" name="churn-rate-input" id="churn-rate-input" class="ap-input churn-rate-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus>
+                            <span class="inline-flex items-center px-3 rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">%</span>
+                        </div>
+                        <div class="annual-turnover-input-slider mt-5 p-1 flex shadow-md border-slate-900 border-2 rounded-full justify-center items-center bg-white">
+                            <div class="churn-rate-input-slider-step-down">
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold">-</button>
+                            </div>
+                            <label for="churn-rate-input-slider-range" class="hidden"><span>Churn Rate Slider</span></label>
+                            <input type="range" name="churn-rate-input-slider-range" id="churn-rate-input-slider-range" class="churn-rate-input-slider-range flex-grow appearance-none outline-none" min="0" max="100" step="1" value="5">
+                            <div class="churn-rate-input-slider-step-up">
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results w-full mt-10">
+                <div class="results-text"></div>
+                <div class="mb-5 md:mb-0 mt-10 no-print">
+                    <button class="print p-4 bg-emerald-400 text-gray-800"><i class="fas fa-print"></i> Print</button>
+                    <button class="share p-4 bg-emerald-400 text-gray-800"><i class="fas fa-share"></i> Share</button>
+                    <button class="email p-4 bg-emerald-400 text-gray-800"><i class="fas fa-envelope"></i> Email</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <div class="py-10 text-center flex flex-col justify-center bg-slate-100">
+            <div class="mb-5">
+                <p class="text-sm">Powered by <a href="https://brandymedia.co.uk/" target="_blank" rel="noreferrer">Brandy Media</a></p>
+            </div>
+            <div>
+                <a href="https://brandymedia.co.uk/" target="_blank" rel="noreferrer">
+                    <img class="logo inline" src="./images/Brandy Media logo.svg" alt="Brandy Media Logo">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

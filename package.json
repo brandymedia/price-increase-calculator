@@ -1,0 +1,19 @@
+{
+  "name": "revenue-increase-risk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.0.17"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.4.0",
+    "postcss": "^8.4.5"
+  }
+}
