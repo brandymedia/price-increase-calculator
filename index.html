@@ -41,9 +41,9 @@
                         <label for="current-revenue-input" class="text-lg flex justify-between items-end"><span>Current Revenue</span></label>
                         <div class="mt-1 flex shadow-md">
                             <span class="inline-flex items-center px-3 rounded-none border border-r-0 border-slate-900 bg-slate-900 text-white">£</span>
-                            <input type="number" name="current-revenue-input" id="current-revenue-input" class="ap-input current-revenue-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus>
+                            <input type="number" name="current-revenue-input" id="current-revenue-input" class="ap-input current-revenue-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus tabindex="1">
                             <span class="inline-flex items-center rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">
-                                <select class="text-slate-900 border-l-0 current-revenue-period" name="current-revenue-period" id="current-revenue-period">
+                                <select class="text-slate-900 border-l-0 current-revenue-period" name="current-revenue-period" id="current-revenue-period" tabindex="2">
                                     <option value="monthly" selected>monthly</option>
                                     <option value="annually">annually</option>
                                 </select>
@@ -51,12 +51,12 @@
                         </div>
                         <div class="annual-turnover-input-slider mt-5 p-1 flex shadow-md border-slate-900 border-2 rounded-full justify-center items-center bg-white">
                             <div class="current-revenue-input-slider-step-down">
-                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold">-</button>
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold" tabindex="3">-</button>
                             </div>
                             <label for="current-revenue-input-slider-range" class="hidden"><span>Current Revenue Slider</span></label>
-                            <input type="range" name="current-revenue-input-slider-range" id="current-revenue-input-slider-range" class="current-revenue-input-slider-range flex-grow appearance-none outline-none" min="0" max="1000000" step="1000" value="25000">
+                            <input type="range" name="current-revenue-input-slider-range" id="current-revenue-input-slider-range" class="current-revenue-input-slider-range flex-grow appearance-none outline-none" min="0" max="1000000" step="1000" value="25000" tabindex="4">
                             <div class="current-revenue-input-slider-step-up">
-                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold">+</button>
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold" tabindex="5">+</button>
                             </div>
                         </div>
                     </div>
@@ -66,17 +66,17 @@
                         <label for="customer-total-input" class="text-lg flex justify-between items-end"><span>Customer Total</span></label>
                         <div class="mt-1 flex shadow-md">
                             <span class="inline-flex items-center px-3 rounded-none border border-r-0 border-slate-900 bg-slate-900 text-white"><i class="fas fa-user"></i></span>
-                            <input type="number" name="customer-total-input" id="customer-total-input" class="ap-input customer-total-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus>
+                            <input type="number" name="customer-total-input" id="customer-total-input" class="ap-input customer-total-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" tabindex="6">
                             <span class="inline-flex items-center px-3 rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">customers</span>
                         </div>
                         <div class="annual-turnover-input-slider mt-5 p-1 flex shadow-md border-slate-900 border-2 rounded-full justify-center items-center bg-white">
                             <div class="customer-total-input-slider-step-down">
-                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold">-</button>
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold" tabindex="7">-</button>
                             </div>
                             <label for="customer-total-input-slider-range" class="hidden"><span>Customer Total Slider</span></label>
-                            <input type="range" name="customer-total-input-slider-range" id="customer-total-input-slider-range" class="customer-total-input-slider-range flex-grow appearance-none outline-none" min="0" max="10000" step="10" value="500">
+                            <input type="range" name="customer-total-input-slider-range" id="customer-total-input-slider-range" class="customer-total-input-slider-range flex-grow appearance-none outline-none" min="0" max="10000" step="10" value="500" tabindex="8">
                             <div class="customer-total-input-slider-step-up">
-                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold">+</button>
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold" tabindex="9">+</button>
                             </div>
                         </div>
                     </div>
@@ -86,9 +86,9 @@
                         <label for="revenue-increase-input" class="text-lg flex justify-between items-end"><span>Revenue Increase <span class="text-sm">(per customer)</span></span></label>
                         <div class="mt-1 flex shadow-md">
                             <span class="revenue-increase-fixed inline-flex items-center px-3 rounded-none border border-r-0 border-slate-900 bg-slate-900 text-white">£</span>
-                            <input type="number" name="revenue-increase-input" id="revenue-increase-input" class="ap-input revenue-increase-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus>
+                            <input type="number" name="revenue-increase-input" id="revenue-increase-input" class="ap-input revenue-increase-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" tabindex="10">
                             <span class="inline-flex items-center rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">
-                                <select class="text-slate-900 border-l-0 revenue-increase-type" name="revenue-increase-type" id="revenue-increase-type">
+                                <select class="text-slate-900 border-l-0 revenue-increase-type" name="revenue-increase-type" id="revenue-increase-type" tabindex="11">
                                     <option value="fixed" selected>fixed</option>
                                     <option value="%">%</option>
                                 </select>
@@ -96,12 +96,12 @@
                         </div>
                         <div class="annual-turnover-input-slider mt-5 p-1 flex shadow-md border-slate-900 border-2 rounded-full justify-center items-center bg-white">
                             <div class="revenue-increase-input-slider-step-down">
-                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold">-</button>
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold" tabindex="12">-</button>
                             </div>
                             <label for="revenue-increase-input-slider-range" class="hidden"><span>Revenue Increase Slider</span></label>
-                            <input type="range" name="revenue-increase-input-slider-range" id="revenue-increase-input-slider-range" class="revenue-increase-input-slider-range flex-grow appearance-none outline-none" min="0" max="10000" step="10" value="10">
+                            <input type="range" name="revenue-increase-input-slider-range" id="revenue-increase-input-slider-range" class="revenue-increase-input-slider-range flex-grow appearance-none outline-none" min="0" max="10000" step="10" value="10" tabindex="13">
                             <div class="revenue-increase-input-slider-step-up">
-                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold">+</button>
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold" tabindex="14">+</button>
                             </div>
                         </div>
                     </div>
@@ -110,17 +110,17 @@
                     <div class="bg-slate-50 p-5">
                         <label for="churn-rate-input" class="text-lg flex justify-between items-end"><span>Churn Rate</span></label>
                         <div class="mt-1 flex shadow-md">
-                            <input type="number" name="churn-rate-input" id="churn-rate-input" class="ap-input churn-rate-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus>
+                            <input type="number" name="churn-rate-input" id="churn-rate-input" class="ap-input churn-rate-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" tabindex="15">
                             <span class="inline-flex items-center px-3 rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">%</span>
                         </div>
                         <div class="annual-turnover-input-slider mt-5 p-1 flex shadow-md border-slate-900 border-2 rounded-full justify-center items-center bg-white">
                             <div class="churn-rate-input-slider-step-down">
-                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold">-</button>
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 mr-2 font-bold" tabindex="16">-</button>
                             </div>
                             <label for="churn-rate-input-slider-range" class="hidden"><span>Churn Rate Slider</span></label>
-                            <input type="range" name="churn-rate-input-slider-range" id="churn-rate-input-slider-range" class="churn-rate-input-slider-range flex-grow appearance-none outline-none" min="0" max="100" step="1" value="5">
+                            <input type="range" name="churn-rate-input-slider-range" id="churn-rate-input-slider-range" class="churn-rate-input-slider-range flex-grow appearance-none outline-none" min="0" max="100" step="1" value="5" tabindex="17">
                             <div class="churn-rate-input-slider-step-up">
-                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold">+</button>
+                                <button class="annual-turnover-input-slider-button border-slate-900 border-2 rounded-full justify-center items-center h-7 w-7 ml-2 font-bold" tabindex="18">+</button>
                             </div>
                         </div>
                     </div>
@@ -129,9 +129,9 @@
             <div class="results my-10">
                 <div class="results-text"></div>
                 <div class="mb-5 md:mb-0 mt-10 no-print">
-                    <button class="print p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-800"><i class="fas fa-print"></i> Print</button>
-                    <button class="share p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-800"><i class="fas fa-share"></i> Share</button>
-                    <button class="email p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-800"><i class="fas fa-envelope"></i> Email</button>
+                    <button class="print p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-800" tabindex="19"><i class="fas fa-print"></i> Print</button>
+                    <button class="share p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-800" tabindex="20"><i class="fas fa-share"></i> Share</button>
+                    <button class="email p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-800" tabindex="21"><i class="fas fa-envelope"></i> Email</button>
                 </div>
             </div>
         </div>
@@ -142,11 +142,11 @@
             <div class="mt-10 text-gray-900 flex justify-center">
                 <form action="https://brandymedia.us2.list-manage.com/subscribe/post?u=5fafc743c1e518a9b5f418557&amp;id=a08b8a2f96" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate flex flex-col md:flex-col justify-center items-center	w-full sm:w-2/3" target="_blank" novalidate>  
                     <div class="w-full mb-5">
-                        <input type="email" value="" name="EMAIL" class="p-4 w-full border-2 border-gray-900 rounded-none focus:outline-none focus:border-gray-900 placeholder-gray-900" id="mce-EMAIL" placeholder="Email Address">
+                        <input type="email" value="" name="EMAIL" class="p-4 w-full border-2 border-gray-900 rounded-none focus:outline-none focus:border-gray-900 placeholder-gray-900" id="mce-EMAIL" placeholder="Email Address" tabindex="22">
                     </div>
                     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5fafc743c1e518a9b5f418557_a08b8a2f96" value=""></div>
                     <div class="w-full">
-                        <input type="submit" value="Subscribe" name="subscribe" class="p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-900 uppercase tracking-wider rounded-none w-full cursor-pointer">
+                        <input type="submit" value="Subscribe" name="subscribe" class="p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-900 uppercase tracking-wider rounded-none w-full cursor-pointer" tabindex="23">
                     </div>
                     <div>
                         <div class="response" id="mce-error-response" style="display:none"></div>
@@ -159,7 +159,7 @@
     <footer>
         <div class="py-10 text-center flex flex-col justify-center bg-slate-100">
             <div class="mb-5">
-                <p class="text-sm">Powered by <a href="https://brandymedia.co.uk/" target="_blank" rel="noreferrer">Brandy Media</a></p>
+                <p class="text-sm">Powered by <a href="https://brandymedia.co.uk/" target="_blank" rel="noreferrer" tabindex="24">Brandy Media</a></p>
             </div>
             <div>
                 <a href="https://brandymedia.co.uk/" target="_blank" rel="noreferrer">
