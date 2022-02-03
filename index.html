@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Price Increase Calculator</title>
+    <meta name="description" content="Calculate the risk to your business when increasing your prices">
+    <meta property="og:title" content="Price Increase Calculator">
+    <meta property="og:description" content="Calculate the risk to your business when increasing your prices">
+    <meta property="og:image" content="https://res.cloudinary.com/brandymedia/image/upload/v1643880117/price-increase-calculator-banner_t4lpiq.png">
+    <meta property="og:image:secure_url" content="https://res.cloudinary.com/brandymedia/image/upload/v1643880117/price-increase-calculator-banner_t4lpiq.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://priceincrease.brandymedia.co.uk/">
+    <meta name="twitter:card" content="summary_large_image" /> 
+    <meta name="twitter:site" content="@brandymedia" /> 
+    <meta name="twitter:title" content="Calculate the risk to your business when increasing your prices" /> 
+    <meta name="twitter:description" content="Calculate the risk to your business when increasing your prices" /> 
+    <meta name="twitter:image" content="https://res.cloudinary.com/brandymedia/image/upload/v1643880117/price-increase-calculator-banner_t4lpiq.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
@@ -19,9 +32,8 @@
     </header>
     <main>
         <div class="mt-10 px-3 max-w-xl mx-auto text-center">
-            <h2 class="text-2xl tracking-tight">Calculate the risk to your business by increasing your prices</h2>
+            <h2 class="text-2xl tracking-tight">Calculate the risk to your business when increasing your prices</h2>
         </div>
-
         <div class="bg-white text-slate-900 my-10 md:p-5 max-w-6xl mx-auto text-center">
             <div class="grid grid-cols-1 md:grid-cols-2 no-print">   
                 <div class="bg-slate-200 p-5">
@@ -33,7 +45,7 @@
                             <span class="inline-flex items-center rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">
                                 <select class="text-slate-900 border-l-0 current-revenue-period" name="current-revenue-period" id="current-revenue-period">
                                     <option value="monthly" selected>monthly</option>
-                                    <option value="anually">anually</option>
+                                    <option value="annually">annually</option>
                                 </select>
                             </span>
                         </div>
@@ -77,8 +89,8 @@
                             <input type="number" name="revenue-increase-input" id="revenue-increase-input" class="ap-input revenue-increase-input flex-1 block w-full sm:text-sm rounded-none border-2 border-slate-900 bg-white" autofocus>
                             <span class="inline-flex items-center rounded-none border border-l-0 border-slate-900 bg-slate-900 text-white">
                                 <select class="text-slate-900 border-l-0 revenue-increase-type" name="revenue-increase-type" id="revenue-increase-type">
-                                    <option value="monthly" selected>fixed</option>
-                                    <option value="anually">%</option>
+                                    <option value="fixed" selected>fixed</option>
+                                    <option value="%">%</option>
                                 </select>
                             </span>
                         </div>
@@ -114,16 +126,34 @@
                     </div>
                 </div>
             </div>
-
             <div class="results my-10">
                 <div class="results-text"></div>
                 <div class="mb-5 md:mb-0 mt-10 no-print">
-                    <button class="print p-4 bg-emerald-400 text-gray-800"><i class="fas fa-print"></i> Print</button>
-                    <button class="share p-4 bg-emerald-400 text-gray-800"><i class="fas fa-share"></i> Share</button>
-                    <button class="email p-4 bg-emerald-400 text-gray-800"><i class="fas fa-envelope"></i> Email</button>
+                    <button class="print p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-800"><i class="fas fa-print"></i> Print</button>
+                    <button class="share p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-800"><i class="fas fa-share"></i> Share</button>
+                    <button class="email p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-800"><i class="fas fa-envelope"></i> Email</button>
                 </div>
             </div>
-
+        </div>
+        <div class="bg-gray-900 py-24 px-3 text-center">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg text-white tracking-wider">Don't miss out - <br class="inline md:hidden"/> Enter your email below to receive updates on all of our latest products & services.</p>
+            </div>
+            <div class="mt-10 text-gray-900 flex justify-center">
+                <form action="https://brandymedia.us2.list-manage.com/subscribe/post?u=5fafc743c1e518a9b5f418557&amp;id=a08b8a2f96" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate flex flex-col md:flex-col justify-center items-center	w-full sm:w-2/3" target="_blank" novalidate>  
+                    <div class="w-full mb-5">
+                        <input type="email" value="" name="EMAIL" class="p-4 w-full border-2 border-gray-900 rounded-none focus:outline-none focus:border-gray-900 placeholder-gray-900" id="mce-EMAIL" placeholder="Email Address">
+                    </div>
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5fafc743c1e518a9b5f418557_a08b8a2f96" value=""></div>
+                    <div class="w-full">
+                        <input type="submit" value="Subscribe" name="subscribe" class="p-4 bg-emerald-400 hover:bg-emerald-500 text-gray-900 uppercase tracking-wider rounded-none w-full cursor-pointer">
+                    </div>
+                    <div>
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>                
+                </form>
+            </div>
         </div>
     </main>
     <footer>
@@ -136,6 +166,9 @@
                     <img class="logo inline" src="./images/Brandy Media logo.svg" alt="Brandy Media Logo">
                 </a>
             </div>
+        </div>
+        <div class="text-center py-10">
+            <div class="copyright"></div>
         </div>
     </footer>
     <script src="app.js"></script>

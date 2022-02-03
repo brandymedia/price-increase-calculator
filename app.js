@@ -1,4 +1,7 @@
 (function () {
+
+    document.querySelector(".copyright").innerHTML = `Copyright © ${ new Date().getFullYear() } <a target="_blank" class="underline" href="https://www.brandymedia.co.uk/">Brandy Media</a>`;
+
     function copyCat(elem1, elem2, elem3) {
         params = new URLSearchParams(location.search);
 
@@ -70,23 +73,30 @@
         const results = document.querySelector('.results-text');
         const revenueIncreaseFixed = document.querySelector('.revenue-increase-fixed');
 
+        window.addEventListener('load',  () => {
+            params = new URLSearchParams(location.search);
+            let periodParam = params.get('period');
+            let typeParam = params.get('type');
+            if (periodParam) {
+                currentRevenuePeriod.value = periodParam;
+            }
+            if (typeParam) {
+                revenueIncreaseType.value = typeParam;
+            }
+            calculate();
+        });
+
         currentRevenuePeriod.addEventListener('change', () => {
-            // params = new URLSearchParams(location.search);
-            // let periodParam = params.get('period');            
-            // params.set('period', currentRevenuePeriodOption);
-            console.log(currentRevenuePeriodOption);
-
-            // window.addEventListener('load', () => {
-            //     if (periodParam) {
-            //         // currentRevenuePeriodOption.value = periodParam;
-            //         console.log('yep');
-            //     }
-            // });            
-
+            params = new URLSearchParams(location.search);
+            params.set('period', currentRevenuePeriod.options[currentRevenuePeriod.selectedIndex].text);
+            window.history.replaceState({}, '', `${location.pathname}?${params}`);
             calculate();
         });
 
         revenueIncreaseType.addEventListener('change', () => {
+            params = new URLSearchParams(location.search);
+            params.set('type', revenueIncreaseType.options[revenueIncreaseType.selectedIndex].text);
+            window.history.replaceState({}, '', `${location.pathname}?${params}`);            
             calculate();
         });
 
@@ -149,7 +159,7 @@
         results.innerHTML = `
             <div class="px-5 md:px-0">
                 <h3 class="text-2xl mb-5">Results</h3>
-                <p>If you increase your prices by <strong class="text-2xl text-emerald-400">${revenueIncreaseTypeOption === 'fixed' ? `£` : ''}${ revenueIncrease }${revenueIncreaseTypeOption !== 'fixed' ? `%` : ''}</strong> per customer, with an average churn rate of <strong class="text-2xl text-emerald-400">${ churnRate }%</strong>, your projected revenue would be <strong class="text-2xl ${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' }">£${ thousands_separators(projectedMonthlyRevenueTotal.toFixed(2)) }</strong> monthly and <strong class="text-2xl ${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' }">£${ thousands_separators(projectedAnnualRevenueTotal.toFixed(2)) }</strong> annualy.</p>
+                <p>If you increase your prices by <strong class="text-2xl text-emerald-400">${revenueIncreaseTypeOption === 'fixed' ? `£` : ''}${ revenueIncrease }${revenueIncreaseTypeOption !== 'fixed' ? `%` : ''}</strong> per customer, with an average churn rate of <strong class="text-2xl text-emerald-400">${ churnRate }%</strong>, your projected revenue would be <strong class="text-2xl ${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' }">£${ thousands_separators(projectedMonthlyRevenueTotal.toFixed(2)) }</strong> monthly and <strong class="text-2xl ${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' }">£${ thousands_separators(projectedAnnualRevenueTotal.toFixed(2)) }</strong> Annually.</p>
             </div>
             ${ warningText }
             <div class="grid grid-cols-2 md:grid-cols-2 gap-0 md:gap-4 mt-10">
@@ -168,7 +178,7 @@
                             </div>
                         </div>
                         <div class="bg-slate-50 border border-slate-100 p-5">
-                            <h5 class="text-lg mb-5 font-bold">Annualy</h5>
+                            <h5 class="text-lg mb-5 font-bold">Annually</h5>
                             <div class="mb-5">
                                 <div class="text-sm">Total</div>
                                 <div class="text-emerald-400 font-bold text-base md:text-xl">£${ thousands_separators(currentAnnualRevenueTotal.toFixed(2)) }</div>
@@ -195,7 +205,7 @@
                             </div>
                         </div>
                         <div class="bg-slate-50 border border-slate-100 p-5">
-                            <h5 class="text-lg mb-5 font-bold">Annualy</h5>
+                            <h5 class="text-lg mb-5 font-bold">Annually</h5>
                             <div class="mb-5">
                                 <div class="text-sm">Total</div>
                                 <div class="${ projectedMonthlyRevenueTotal < currentMonthlyRevenueTotal ? 'text-red-400' : 'text-emerald-400' } font-bold text-base md:text-xl">£${ thousands_separators(projectedAnnualRevenueTotal.toFixed(2)) }</div>
